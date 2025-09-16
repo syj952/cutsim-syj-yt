@@ -1,3 +1,9 @@
+QT -= gui
+QMAKE_CC=mpicxx
+QMAKE_CXX=mpicxx
+CONFIG += c++17 console
+CONFIG -= app_bundle
+CONFIG -= -O3
 QT       += core gui xml opengl
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 QT += concurrent
@@ -8,7 +14,7 @@ CONFIG += c++17
 # 定义CUDA支持
 
 DEFINES += ENABLE_CUDA  # 启用CUDA宏
-
+DEFINES += QT_DEPRECATED_WARNINGS
 # CUDA设置
 CUDA_DIR = /usr/local/cuda-12.1
 INCLUDEPATH += $$CUDA_DIR/include
@@ -57,6 +63,7 @@ SOURCES += \
     src/cutsim/glwidget.cpp \
     src/cutsim/machine.cpp \
     src/cutsim/marching_cubes.cpp \
+    src/cutsim/mfem_analysis1.cpp \
     src/cutsim/octnode.cpp \
     src/cutsim/octree.cpp \
     src/cutsim/stl.cpp \
@@ -89,6 +96,7 @@ HEADERS += \
     src/cutsim/isosurface.hpp \
     src/cutsim/machine.hpp \
     src/cutsim/marching_cubes.hpp \
+    src/cutsim/mfem_analysis1.hpp \
     src/cutsim/octnode.hpp \
     src/cutsim/octree.hpp \
     src/cutsim/stl.hpp \
@@ -116,7 +124,15 @@ QMAKE_CXXFLAGS += -march=native -ftree-vectorize -O0 -g
 
 LIBS += -L/usr/lib/x86_64-linux-gnu/ -lGLU -lgomp
 LIBS += -L/usr/lib/x86_64-linux-gnu/ -lQGLViewer-qt5
-
+##"MFEM配置文件"
+INCLUDEPATH+=/home/yt/syj/mfem-4.5
+INCLUDEPATH+=/home/yt/syj/hypre/src/hypre/include
+INCLUDEPATH+=/home/yt/syj/mpich-4.3.1
+LIBS+=-L/home/yt/syj/mfem-4.5 -lmfem
+LIBS+=-L/home/yt/syj/hypre/src/hypre/lib -lHYPRE
+LIBS+=-L/home/yt/syj/metis-4.0 -lmetis
+LIBS+=-lrt
+LIBS+=-L/home/yt/syj/mpich-4.3.1 -lmpi -lmpi_cxx
 QT += widgets
 
 #LIBS *= -L$${LIB_DIR} -lQGLViewer -lGLU -lgomp
