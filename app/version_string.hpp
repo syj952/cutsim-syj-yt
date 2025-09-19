@@ -1,1 +1,0 @@
-#define VERSION_STRING "Qt5"
