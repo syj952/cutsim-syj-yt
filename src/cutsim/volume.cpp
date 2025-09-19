@@ -1649,7 +1649,7 @@ void AptCutterVolume::calculateTotalForce(){
                 // 遍历force_map计算合力
                 for (const auto& force_pair : force_map_2) {
                     const ForceData& fd = force_pair.second;
-                     collected_force_data.push_back(fd);
+                    collected_force_data.push_back(fd);
                     int inside_index=force_pair.first;
                     //qDebug() << "fd.force_value.x:" << fd.force_value.x;
                     total_force.x += -(fd.force_value.x*fd.force_vr.x+fd.force_value.y*fd.force_vt.x+fd.force_value.z*fd.force_va.x);

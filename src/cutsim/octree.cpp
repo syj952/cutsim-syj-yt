@@ -1002,19 +1002,19 @@ void Octree::boundary(std::vector<std::vector<int>>& boundaryFaces,std::vector<G
                     else
                         vertex.push_back(node->vertex[0]->id + normalVertexList.size()  -1);
 
-                    // 添加顶点1的ID
+                    // 添加顶点3的ID
                     if(node->vertex[3]->id <= 0) // 正常顶点
                         vertex.push_back(-node->vertex[3]->id);
                     else
                         vertex.push_back(node->vertex[3]->id + normalVertexList.size()  -1);
 
-                    // 添加顶点4的ID
+                    // 添加顶点7的ID
                     if(node->vertex[7]->id <= 0) // 正常顶点
                         vertex.push_back(-node->vertex[7]->id);
                     else
                         vertex.push_back(node->vertex[7]->id + normalVertexList.size() -1);
 
-                    // 添加顶点5的ID
+                    // 添加顶点4的ID
                     if(node->vertex[4]->id <= 0) // 正常顶点
                         vertex.push_back(-node->vertex[4]->id);
                     else
@@ -1038,25 +1038,25 @@ void Octree::boundary(std::vector<std::vector<int>>& boundaryFaces,std::vector<G
                 if (is_boundary) {
                     std::vector<int> vertex;
                      hasboundaryface=true;
-                    // 添加顶点0的ID
+                    // 添加顶点2的ID
                     if(node->vertex[2]->id <= 0) // 正常顶点
                         vertex.push_back(-node->vertex[2]->id);
                     else
                         vertex.push_back(node->vertex[2]->id + normalVertexList.size()  -1);
 
-                    // 添加顶点1的ID
+                    // 添加顶点3的ID
                     if(node->vertex[3]->id <= 0) // 正常顶点
                         vertex.push_back(-node->vertex[3]->id);
                     else
                         vertex.push_back(node->vertex[3]->id + normalVertexList.size()  -1);
 
-                    // 添加顶点4的ID
+                    // 添加顶点7的ID
                     if(node->vertex[7]->id <= 0) // 正常顶点
                         vertex.push_back(-node->vertex[7]->id);
                     else
                         vertex.push_back(node->vertex[7]->id + normalVertexList.size()  -1);
 
-                    // 添加顶点5的ID
+                    // 添加顶点6的ID
                     if(node->vertex[6]->id <= 0) // 正常顶点
                         vertex.push_back(-node->vertex[6]->id);
                     else
@@ -1080,19 +1080,19 @@ void Octree::boundary(std::vector<std::vector<int>>& boundaryFaces,std::vector<G
                 if (is_boundary) {
                     std::vector<int> vertex;
                      hasboundaryface=true;
-                    // 添加顶点0的ID
+                    // 添加顶点1的ID
                     if(node->vertex[1]->id <= 0) // 正常顶点
                         vertex.push_back(-node->vertex[1]->id);
                     else
                         vertex.push_back(node->vertex[1]->id + normalVertexList.size()  -1);
 
-                    // 添加顶点1的ID
+                    // 添加顶点2的ID
                     if(node->vertex[2]->id <= 0) // 正常顶点
                         vertex.push_back(-node->vertex[2]->id);
                     else
                         vertex.push_back(node->vertex[2]->id + normalVertexList.size()  -1);
 
-                    // 添加顶点4的ID
+                    // 添加顶点6的ID
                     if(node->vertex[6]->id <= 0) // 正常顶点
                         vertex.push_back(-node->vertex[6]->id);
                     else
@@ -1122,25 +1122,25 @@ void Octree::boundary(std::vector<std::vector<int>>& boundaryFaces,std::vector<G
                 if (is_boundary) {
                     std::vector<int> vertex;
                      hasboundaryface=true;
-                    // 添加顶点0的ID
+                    // 添加顶点4的ID
                     if(node->vertex[4]->id <= 0) // 正常顶点
                         vertex.push_back(-node->vertex[4]->id);
                     else
                         vertex.push_back(node->vertex[4]->id + normalVertexList.size()  -1);
 
-                    // 添加顶点1的ID
+                    // 添加顶点5的ID
                     if(node->vertex[5]->id <= 0) // 正常顶点
                         vertex.push_back(-node->vertex[5]->id);
                     else
                         vertex.push_back(node->vertex[5]->id + normalVertexList.size()  -1);
 
-                    // 添加顶点4的ID
+                    // 添加顶点6的ID
                     if(node->vertex[6]->id <= 0) // 正常顶点
                         vertex.push_back(-node->vertex[6]->id);
                     else
                         vertex.push_back(node->vertex[6]->id + normalVertexList.size()  -1);
 
-                    // 添加顶点5的ID
+                    // 添加顶点7的ID
                     if(node->vertex[7]->id <= 0) // 正常顶点
                         vertex.push_back(-node->vertex[7]->id);
                     else
@@ -1177,20 +1177,20 @@ void Octree::boundary(std::vector<std::vector<int>>& boundaryFaces,std::vector<G
                     else
                         vertex.push_back(node->vertex[1]->id + normalVertexList.size()  -1);
 
-                    // 添加顶点4的ID
+                    // 添加顶点2的ID
                     if(node->vertex[2]->id <= 0) // 正常顶点
                         vertex.push_back(-node->vertex[2]->id);
                     else
                         vertex.push_back(node->vertex[2]->id + normalVertexList.size()  -1);
 
-                    // 添加顶点5的ID
+                    // 添加顶点3的ID
                     if(node->vertex[3]->id <= 0) // 正常顶点
                         vertex.push_back(-node->vertex[3]->id);
                     else
                         vertex.push_back(node->vertex[3]->id + normalVertexList.size()  -1);
 
                     boundaryFaces.push_back(vertex);
-
+                    std::cout<<"我是底面"<<node->indexs->z<<std::endl;
                 }
 
                 break;
@@ -4834,12 +4834,12 @@ void Octree::export_mesh_to_file(std::vector<GLVertex*>& normalvertices, std::ve
     // boundary
     out << "boundary\n" << boundaryFaces.size() << "\n";
 
-    int forceCounter = 2; // 从2开始累加
+    int forceCounter = 3; // 从3开始累加,1是固定表面，2是自由表面
 
     for (const auto& face : boundaryFaces) {
         bool isForceRelatedFace = false;
         bool isRightBoundaryFace = false;
-
+        bool isBottomBoundaryFace=false;
         // 检查当前面是否在forceBoundaryFaceVertices中
         for (const auto& forceFace : forceBoundaryFaceVertices) {
             if (face.size() == forceFace.size()) {
@@ -4857,7 +4857,7 @@ void Octree::export_mesh_to_file(std::vector<GLVertex*>& normalvertices, std::ve
             }
         }
 
-        // 检查是否为右边界面（x=170的底面）
+        // 检查是否为右边界面或者底面）
         if (!isForceRelatedFace) {
             // 遍历所有叶节点，查找面所属的节点
             for (Octnode* node : leaf_node_list) {
@@ -4880,29 +4880,53 @@ void Octree::export_mesh_to_file(std::vector<GLVertex*>& normalvertices, std::ve
                     }
                 }
 
-                // 如果所有顶点都在这个节点中，检查是否是右边界面
-                if (allVerticesInNode && node->indexs != nullptr && node->indexs->x == 80) {
-                    // 检查是否是底面 (底面顶点索引为0,3,7,4)
-                    bool isBottomFace = true;
-                    std::vector<int> bottomFaceIndices = {0, 3, 7, 4};
+                //判断这个node是否是右、底node
+                if (allVerticesInNode && node->indexs != nullptr && (node->indexs->x == 80||node->indexs->z==31)) {
+                    // 检查是否是Node的右面 (右面顶点索引为0,3,7,4)
+                    bool  isRightFace = true;
+                    //检查是否是Node的底面(右面顶点索引为0,1,2,3)
+                    bool isBottomFace=true;
+                    std::vector<int> RightFaceIndices = {0, 3, 7, 4};
+                    std::vector<int> BottomFaceIndices = {0,1,2,3};
                     for (int faceVertexIdx : face) {
-                        bool foundInBottomFace = false;
-                        for (int bottomIdx : bottomFaceIndices) {
-                            int nodeVertexId = node->vertex[bottomIdx]->id;
+                        bool foundInRightFace = false;
+
+                        for (int RightIdx : RightFaceIndices) {
+                            int nodeVertexId = node->vertex[RightIdx]->id;
                             if ((nodeVertexId <= 0 && faceVertexIdx == -nodeVertexId) ||
                                 (nodeVertexId > 0 && faceVertexIdx == nodeVertexId + normalvertices.size() - 1)) {
-                                foundInBottomFace = true;
+                                foundInRightFace = true;
                                 break;
                             }
                         }
-                        if (!foundInBottomFace) {
-                            isBottomFace = false;
+                        if (!foundInRightFace) {
+                            isRightFace = false;
                             break;
                         }
                     }
+                    for (int faceVertexIdx : face) {
+                        bool foundInBottomFace= false;
+                        for (int BottomIdx : BottomFaceIndices) {
+                              int nodeVertexId = node->vertex[BottomIdx]->id;
+                              if ((nodeVertexId <= 0 && faceVertexIdx == -nodeVertexId) ||
+                                  (nodeVertexId > 0 && faceVertexIdx == nodeVertexId + normalvertices.size() - 1)) {
+                                  foundInBottomFace = true;
+                                  break;
+                              }
+                          }
 
-                    if (isBottomFace) {
+                        if (!foundInBottomFace) {
+                               isBottomFace = false;
+                               break;
+                           }
+                    }
+
+                    if (isRightFace) {
                         isRightBoundaryFace = true;
+                        break;
+                    }
+                    if(isBottomFace){
+                        isBottomBoundaryFace = true;
                         break;
                     }
                 }
@@ -4913,10 +4937,10 @@ void Octree::export_mesh_to_file(std::vector<GLVertex*>& normalvertices, std::ve
         if (isForceRelatedFace) {
             out << forceCounter << " 3 ";  // 有力作用的边界按forceCounter累加
             forceCounter++; // 为下一个力相关面累加
-        } else if (isRightBoundaryFace) {
-            out << "1 3 ";  // 右边界都设为属性1
+        } else if (isBottomBoundaryFace) {
+            out << "1 3 ";  // 下边界都设为属性1
         } else {
-            out << "3 3 ";
+            out << "2 3 ";
         }
 
         // 输出面顶点ID

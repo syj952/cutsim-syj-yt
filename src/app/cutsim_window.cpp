@@ -27,6 +27,7 @@
 #include <src/cutsim/facet.hpp>
 #include <src/cutsim/volume.hpp>
 #include <src/cutsim/glvertex.hpp>
+#include <src/cutsim/mfem_analysis1.hpp>
 using namespace cutsim;
 CutsimWindow::CutsimWindow(QStringList ags) : args(ags), myLastFolder(tr("")), settings("github.aewallin.cutsim","cutsim") {
     myGLWidget = new cutsim::GLWidget(DEFAULT_SCENE_RADIUS);
@@ -139,8 +140,8 @@ CutsimWindow::CutsimWindow(QStringList ags) : args(ags), myLastFolder(tr("")), s
     for(double i=-1; i<3;i=i+s1->step)
     {
         double theata=i;
-        double x = -5+s1->v_x*i/(2*M_PI);
-        double y = -5+s1->v_y*i/(2*M_PI);
+        double x = -6+s1->v_x*i/(2*M_PI);
+        double y = -6+s1->v_y*i/(2*M_PI);
         s1->dx=s1->v_x*s1->step/(2*M_PI);
         s1->dy=s1->v_y*s1->step/(2*M_PI);
         //s1->rotation_angle=theata;
@@ -200,7 +201,14 @@ CutsimWindow::CutsimWindow(QStringList ags) : args(ags), myLastFolder(tr("")), s
 
     myCutsim->tree->getForceBoundaryFace(nearestNodes,boundaryFaces,forceBoundaryFaceVertices,normalvertices);
     // 导出网格到文件
-    myCutsim->tree->export_mesh_to_file(normalvertices, boundaryFaces, hanging_vertices,forceBoundaryFaceVertices,"/home/yt/syj/cutsim-master-yt01/tasat2.mesh");
+   myCutsim->tree->export_mesh_to_file(normalvertices, boundaryFaces, hanging_vertices,forceBoundaryFaceVertices,"/home/yt/syj/cutsim-master-yt01/tasat2.mesh");
+    std::string meshFile = "/home/yt/syj/cutsim-master-yt01/tasat2.mesh";
+    std::vector<int> eigenvalues;
+    for (int i = 10; i <= 20; ++i) {
+        eigenvalues.push_back(i);
+    }
+    //MFEM 计算
+    runMFEMAnalysis(meshFile, eigenvalues,s1->collected_force_data);
     myCutsim->updateGL();
 //    s1->PlotForces(s1->cube_resolution_2);//输出图表
 //    // s1->plotVibrationCurves();//输出图表
